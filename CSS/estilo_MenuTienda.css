@@ -1,0 +1,44 @@
+/*se encuantra en el index.php*/
+.contenedorDeProductos{
+     position: relative;
+
+     height: 1000px;
+     background-color: white;
+     margin-bottom: 250px;
+     
+}
+/*Esta tabla se encuantra en el MenuCompras.php*/
+.tablaProductos{
+    border:0;
+    width:700px ;
+    height:1000px ;
+    
+}
+
+/*se encuantra en el Detallar_productos.php*/
+.tablaDetalleProductos{
+  
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+    
+}
+
+.div_imagen{
+    box-shadow: 3px 3px 10px gray;
+    //position: absolute;
+    text-align: center;
+    padding: 20px;
+  
+}
+
+.tabla{
+     
+
+}
+
+th, td {
+  padding: 15px;
+  text-align: justify;
+ 
+}
