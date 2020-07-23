@@ -1,8 +1,10 @@
 <?php
 require_once '../BEAN/PedidoBean.php';
+
 session_start();
 
 $ListaPedidos = $_SESSION['ListaPedidos'];
+//var_dump($ListaPedidos);
 ?>
 
 <html>
@@ -29,14 +31,15 @@ $ListaPedidos = $_SESSION['ListaPedidos'];
 
     </head>
     <?php
-    if (!empty($_SESSION['ListaPedidos'])) {
+if (!empty($_SESSION['ListaPedidos'])) {
 
-        if (!isset($_SESSION["id_usuario"])) {  //SI NO SE HA INICIADO SESION  CON EL ID ENTONCES REDIERECCIONAR AL INDEX
-            echo'<script src="../JAVASCRIPT/RestringirTienda.js"></script>  ';
-            echo '<script>  document.location.href="../index.php"; </script>';
-        }
+    if (!isset($_SESSION["id_usuario"])) {
+        //SI NO SE HA INICIADO SESION  CON EL ID ENTONCES REDIERECCIONAR AL INDEX
+        echo '<script src="../JAVASCRIPT/RestringirTienda.js"></script>  ';
+        echo '<script>  document.location.href="../index.php"; </script>';
+    }
 //SI SE HA INICIADO SESION ENTONCES...
-        ?>
+    ?>
 
         <body  >
 
@@ -98,10 +101,10 @@ $ListaPedidos = $_SESSION['ListaPedidos'];
 
                 <form name="form" method="post">
 
-                    <table   class="table table-responsive-md" style="width:100%" id="tablaPedido" >
+                    <table   class="table DataTables-1" style="width:100%" id="tablaPedido" >
                         <thead>
                             <tr>
-                                <th>ID compra</th>
+                                <!-- <th>ID compra</th> -->
                                 <th>Monto compra</th>
                                 <th>Fecha del compra</th>
                                 <th>Estado</th>
@@ -111,9 +114,9 @@ $ListaPedidos = $_SESSION['ListaPedidos'];
                         </thead>
                         <tbody>
                             <?php foreach ($ListaPedidos as $pedido) {
-                                ?>
+        ?>
                                 <tr>
-                                    <td ><?php echo number_format($pedido['id_pedido'], 0) ?> </td>
+                                    <!-- <td ><?php // echo number_format($pedido['id_pedido'], 0) ?> </td> -->
                                     <td><?php echo $pedido['pedido_monto'] ?></td>
                                     <td><?php echo $pedido['pedido_fecha'] ?> </td>
                                     <td><?php echo $pedido['pedido_estado'] ?> </td>
@@ -126,15 +129,16 @@ $ListaPedidos = $_SESSION['ListaPedidos'];
                                 </tr>
 
                             <?php }
-                            ?>
+    ?>
                         </tbody>
                     </table>
                 </form>
             </div>
             <script language=javascript>
                 function mostrar() {
-                    window.open('../REPORTES/pedidos/exTicket.php', '_blank');
+                    window.open('../REPORTES/boleta.php', '_blank');
                 }
+               
             </script>
         </center>
         <?php ?>
@@ -146,7 +150,7 @@ $ListaPedidos = $_SESSION['ListaPedidos'];
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
         <script src="../JAVASCRIPT/Opcion_Cerrar_Sesion.js"></script>
-    <?php } else { ?>
+    <?php } else {?>
         <br>    <br>
 
 
@@ -163,7 +167,7 @@ $ListaPedidos = $_SESSION['ListaPedidos'];
         </div>
 
 
-    <?php } ?>
+    <?php }?>
     <script>
                     $(document).ready(function () {
                         $('#tablaPedido').DataTable({

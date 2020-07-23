@@ -13,11 +13,11 @@
         <!-- Bootstrap CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Font awesome CSS -->
-        <link href="css/font-awesome.min.css" rel="stylesheet">		
+        <link href="css/font-awesome.min.css" rel="stylesheet">
         <!-- Custom CSS -->
         <link href="css/style.css" rel="stylesheet">
 
-        <link href="CSS/EstiloRegister.css" rel="stylesheet">		
+        <link href="CSS/EstiloRegister.css" rel="stylesheet">
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="#">
@@ -32,7 +32,7 @@
         <!-- ************************************************************************************ -->
     </head>
 
-    
+
 
 
     <body>
@@ -82,11 +82,11 @@
                     <!-- paragraph -->
                     <p>Completa tus datos correctamente </p>
                      <script type='text/javascript'>
-                         
+
                 function consultar() {
                     var documento = 'DNI';
                     var usuario = '10447915125';
-                    var password = '985511933';                    
+                    var password = '985511933';
                     var nro_documento = $("#el_dni").val();
                     $.ajax({
                         type: 'GET',
@@ -111,7 +111,7 @@
                 }
 
 
-            
+
                     </script>
 
 
@@ -122,12 +122,12 @@
                         <div>
                             <label for="exampleInputName1"> Nombre </label>
                             <input name="nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese Nombre" disabled="disabled">
-                            
+
                         </div>
                         <div>
                             <label for="exampleInputName1"> Apellido </label>
                             <input name="apellido" type="text" class="form-control" id="apellido" placeholder="Ingrese Apellido" disabled="disabled">
-                        </div> 
+                        </div>
                         <div>
                             <label for="email" for="exampleInputName1"> E-mail </label>
                             <input name="e_mail" type="text" class="form-control" id="e_mail" placeholder="Ingrese Correo" >
@@ -173,7 +173,7 @@
                     <p class="copy-right">Copyright &copy; 2014 <a href="#">Your Site</a> | Designed By : <a href="http://www.indioweb.in/portfolio">IndioWeb</a>, All rights reserved. </p>
                 </div>
             </footer>
-        </div>		
+        </div>
 
         <!-- Javascript files -->
         <!-- jQuery -->
@@ -186,7 +186,6 @@
         <script src="js/html5shiv.js"></script>
         <!-- Custom JS -->
         <script src="js/custom.js"></script>
-    </body>	
+    </body>
 
 </html>
-
