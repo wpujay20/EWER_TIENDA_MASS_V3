@@ -93,10 +93,9 @@
 
 
                         <!--Falta avanzar-->
-                        <form  name= "form" class="navbar-form navbar-right" role="search">
+                        <form   class="navbar-form navbar-right" role="search">
 
-                            <a id="cerrar" class="btn btn-warning">
-
+                            <a id="" type="submit" href="../CONTROLADOR/Controlador_Sesiones.php" class="btn btn-warning">
                                 Cerrar Sesion
                             </a>
                         </form>

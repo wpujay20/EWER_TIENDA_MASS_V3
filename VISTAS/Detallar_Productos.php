@@ -38,8 +38,6 @@ $lista = $objPersona->ListarPorProductosPorID($id);
             <div class="tablaDetalleProductos"> 
 
                 <form action="../CONTROLADOR/PedioControlador.php" method="post"  >
-                    <input type="hidden"id="valor" value="<?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION["CARRITO"]); ?>">
-
                     
                     <table class="tablaDetalleProductos tabla" >
                         <tr>

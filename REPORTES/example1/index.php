@@ -1,30 +1,36 @@
 <?php
 
 function getPDF($ListaDetalle) {
+ 
+$NombreApe=$ListaDetalle[0]["per_nombre"] .''. $ListaDetalle[0]["per_apellido"];
+$correo=$ListaDetalle[0]["per_email"];
+$fechaVenta=$ListaDetalle[0]["pedido_fecha"];
+$direction=$ListaDetalle[0]["per_direccion"];
+    
+    
+    
 
-    $plantilla = ' <body>
+    $plantilla = ' <body>   
     <header class="clearfix">
-      <div id="logo" >
-            <img src="logo_1.png" alt=""/>
-        <img src="logo.png" alt=""/>  
+      <div id="logo" >     
                  
       </div>
       
       <h1>TIENDA MASS</h1>
       
       <div id="company" class="clearfix">
-        <div>Company Name</div>
-        <div>455 Foggy Heights,<br /> AZ 85004, US</div>
-        <div>(602) 519-0450</div>
-        <div><a href="mailto:company@example.com">company@example.com</a></div>
+        <div>TIENDA MASS</div>
+        <div>Villa el Salvador,<br /> Mariategui</div>
+        <div>(01) 7858969</div>
+        <div><a href="tiendamass@gmail.com">tiendamass@gmail.com</a></div>
       </div>
       <div id="project">
-        <div><span>PROJECT</span> Website development</div>
-        <div><span>CLIENT</span> John Doe</div>
-        <div><span>ADDRESS</span> 796 Silver Harbour, TX 79273, US</div>
-        <div><span>EMAIL</span> <a href="mailto:john@example.com">john@example.com</a></div>
-        <div><span>DATE</span> August 17, 2015</div>
-        <div><span>DUE DATE</span> September 17, 2015</div>
+        <div><span>DATOS DEL CLIENTE</span> </div>
+        <div><span>NOMBRE Y EPELLIDO: </span> '.$NombreApe.' </div>
+        <div><span>DIRECCIÓN:         </span> '.$direction.'</div>
+        <div><span>EMAIL:             </span> '.$correo.'</div>
+        <div><span>FECHA DE VENTA:    </span>'.$fechaVenta.' </div>
+         
       </div>
     </header>
     <main>
@@ -64,7 +70,7 @@ function getPDF($ListaDetalle) {
       </div>
     </main>
     <footer>
-     Todo los derechos reservados.
+    
     </footer>
   </body>';
 

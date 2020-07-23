@@ -53,13 +53,16 @@ switch ($opciones) {
             break;
         }
     case 4:{
+        //desde el admin
             unset($_SESSION['ListaDetalle']);
             $idP                      = $_REQUEST['pedidoID'];
             $objPedidoDAO             = new PedidoDAO();
             $ListaPorIDdp             = $objPedidoDAO->ListarDetallePedidoPorID($idP);
             $_SESSION['ListaDetalle'] = $ListaPorIDdp;
             echo '<script>  document.location.href="../VISTAS/MANTENIMIENTOS/PedidosMantenimientos.php"; </script>';
-        }
+            break;
+            
+    }
 }
 ?>
 

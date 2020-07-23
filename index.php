@@ -150,10 +150,12 @@ include './TEMPLATES/cabeceraCliente.php';
                     
                     
             </div>
+        <?php if(empty($_SESSION['id_usuario'])){ ?>
             <div class="blog-btn">
                     <!-- button -->
                     <a href="VISTAS/MANTENIMIENTOS/LoginVendedor.php" class="btn btn-warning">¿Eres un Vendedor?</a>
             </div>
+        <?php }  ?>
     </div>
 </div>
 

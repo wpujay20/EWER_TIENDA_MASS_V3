@@ -92,7 +92,7 @@ class PedidoDAO
     public function ListarDetallePedidoPorID($IDPEDIDO)
     {
         /**
-         * $sql = "SELECT pro.pro_nombre,pro.pro_precio,dp.det_pedido_cantidad, pe.pedido_estado FROM pedido as pe INNER JOIN detalle_pedido as dp
+         * $sql = "SELECT * FROM persona as perso INNER JOIN pedido as pe on perso.id_persona = pe.id_persona INNER JOIN detalle_pedido as dp
         on pe.id_pedido = dp.id_pedido INNER JOIN producto as pro
         on dp.id_producto = pro.ID_producto
         WHERE dp.id_pedido='$idPedido' ";
@@ -101,10 +101,10 @@ class PedidoDAO
          * * */
         try {
             $instanciaComp = ConexionBD::getInstance();
-            $sql           = "SELECT pro.pro_nombre,pro.pro_precio,dp.det_pedido_cantidad, pe.pedido_estado FROM pedido as pe INNER JOIN detalle_pedido as dp
-               on pe.id_pedido = dp.id_pedido INNER JOIN producto as pro
-               on dp.id_producto = pro.ID_producto
-               WHERE dp.id_pedido=$IDPEDIDO ";
+            $sql           = "SELECT * FROM persona as perso INNER JOIN pedido as pe on perso.id_persona = pe.id_persona INNER JOIN detalle_pedido as dp
+        on pe.id_pedido = dp.id_pedido INNER JOIN producto as pro
+        on dp.id_producto = pro.ID_producto
+        WHERE dp.id_pedido=$IDPEDIDO ";
             
             $res   = $instanciaComp->EjecutarConEstado($sql);
             $lista = $instanciaComp->obtener_filas($res);

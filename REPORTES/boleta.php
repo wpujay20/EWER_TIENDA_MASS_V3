@@ -21,7 +21,7 @@ $mpdf = new \Mpdf\Mpdf([
 
 //$objPedidoDAO = new PedidoDAO();
 //$ListaDetalle = $objPedidoDAO->ListarDetallePedidoPorID(32);
-
+  
 $plantilla = getPDF($ListaPorIDdp);
 //css
 $css = file_get_contents('./example1/style.css');

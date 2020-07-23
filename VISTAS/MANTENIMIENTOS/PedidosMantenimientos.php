@@ -161,7 +161,7 @@ if (isset($_SESSION['Pedidos'])) {
         });
 
         function mostrar() {
-            window.open('../../REPORTES/pedidos/exTicket.php', '_blank');
+            window.open('../../REPORTES/boleta.php', '_blank');
 
         }
     </script>

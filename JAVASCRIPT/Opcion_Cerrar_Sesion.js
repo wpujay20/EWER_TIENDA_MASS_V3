@@ -14,7 +14,8 @@ $("#cerrar").click(function () {
 
         $("button").click(function () {
             //window.location.href="CONTROLADOR/Controlador_Sesiones.php";
-             window.location.href="CONTROLADOR/Controlador_Sesiones.php";
+             document.location.href="../CONTROLADOR/Controlador_Sesiones.php";
+//             require('../CONTROLADOR/Controlador_Sesiones.php');
             });
     });
 });

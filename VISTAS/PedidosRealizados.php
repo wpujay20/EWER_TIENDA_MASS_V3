@@ -73,7 +73,7 @@ if (!empty($_SESSION['ListaPedidos'])) {
                                     <a class="nav-link" id="carrito"   href="carrito.php">Carrito(  <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION["CARRITO"]); ?>)</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" id="carrito"   href="../CONTROLADOR/TiendaControlador.php?op=2">Mis Pedidos</a>
+                                    <a class="nav-link" id="carrito"   href="../CONTROLADOR/TiendaControlador.php?op=2">Mis Compras</a>
 
                                 </li>
 
