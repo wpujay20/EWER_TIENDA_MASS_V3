@@ -31,15 +31,15 @@ $ListaPedidos = $_SESSION['ListaPedidos'];
 
     </head>
     <?php
-if (!empty($_SESSION['ListaPedidos'])) {
+    if (!empty($_SESSION['ListaPedidos'])) {
 
-    if (!isset($_SESSION["id_usuario"])) {
-        //SI NO SE HA INICIADO SESION  CON EL ID ENTONCES REDIERECCIONAR AL INDEX
-        echo '<script src="../JAVASCRIPT/RestringirTienda.js"></script>  ';
-        echo '<script>  document.location.href="../index.php"; </script>';
-    }
+        if (!isset($_SESSION["id_usuario"])) {
+            //SI NO SE HA INICIADO SESION  CON EL ID ENTONCES REDIERECCIONAR AL INDEX
+            echo '<script src="../JAVASCRIPT/RestringirTienda.js"></script>  ';
+            echo '<script>  document.location.href="../index.php"; </script>';
+        }
 //SI SE HA INICIADO SESION ENTONCES...
-    ?>
+        ?>
 
         <body  >
 
@@ -100,45 +100,46 @@ if (!empty($_SESSION['ListaPedidos'])) {
                 <!-- Content here -->
 
                 <form name="form" method="post">
-
-                    <table   class="table DataTables-1" style="width:100%" id="tablaPedido" >
-                        <thead>
-                            <tr>
-                                <!-- <th>ID compra</th> -->
-                                <th>Monto compra</th>
-                                <th>Fecha del compra</th>
-                                <th>Estado</th>
-                                <th>Opciones</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($ListaPedidos as $pedido) {
-        ?>
+                    <div class="table-responsive">        
+                        <table   style="font-size: small" id="example" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
                                 <tr>
-                                    <!-- <td ><?php // echo number_format($pedido['id_pedido'], 0) ?> </td> -->
-                                    <td><?php echo $pedido['pedido_monto'] ?></td>
-                                    <td><?php echo $pedido['pedido_fecha'] ?> </td>
-                                    <td><?php echo $pedido['pedido_estado'] ?> </td>
-                                    <td>
+                                    <!-- <th>ID compra</th> -->
+                                    <th>Monto compra</th>
+                                    <th>Fecha del compra</th>
+                                    <th>Estado</th>
+                                    <th>Opciones</th>
 
-                                        <a  class="btn btn-info" onclick="mostrar()"type="submit"  href="../CONTROLADOR/TiendaControlador.php?op=3&pedidoID='<?php echo number_format($pedido['id_pedido'], 0) ?> ?>'" >Mostrar
-                                        </a>
-
-                                    </td>
                                 </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($ListaPedidos as $pedido) {
+                                    ?>
+                                    <tr>
+                                        <!-- <td ><?php // echo number_format($pedido['id_pedido'], 0)  ?> </td> -->
+                                        <td><?php echo $pedido['pedido_monto'] ?></td>
+                                        <td><?php echo $pedido['pedido_fecha'] ?> </td>
+                                        <td><?php echo $pedido['pedido_estado'] ?> </td>
+                                        <td>
 
-                            <?php }
-    ?>
-                        </tbody>
-                    </table>
+                                            <a  class="btn btn-info" onclick="mostrar()"type="submit"  href="../CONTROLADOR/TiendaControlador.php?op=3&pedidoID='<?php echo number_format($pedido['id_pedido'], 0) ?> ?>'" >Mostrar
+                                            </a>
+
+                                        </td>
+                                    </tr>
+
+                                <?php }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </form>
             </div>
             <script language=javascript>
                 function mostrar() {
                     window.open('../REPORTES/boleta.php', '_blank');
                 }
-               
+
             </script>
         </center>
         <?php ?>
@@ -150,7 +151,7 @@ if (!empty($_SESSION['ListaPedidos'])) {
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
         <script src="../JAVASCRIPT/Opcion_Cerrar_Sesion.js"></script>
-    <?php } else {?>
+    <?php } else { ?>
         <br>    <br>
 
 
@@ -167,40 +168,40 @@ if (!empty($_SESSION['ListaPedidos'])) {
         </div>
 
 
-    <?php }?>
+    <?php } ?>
     <script>
-                    $(document).ready(function () {
-                        $('#tablaPedido').DataTable({
-                            language: {
-                                "sProcessing": "Procesando...",
-                                "sLengthMenu": "Mostrar _MENU_ registros",
-                                "sZeroRecords": "No se encontraron resultados",
-                                "sEmptyTable": "Ningún dato disponible en esta tabla",
-                                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                                "sInfoPostFix": "",
-                                "sSearch": "Buscar:",
-                                "sUrl": "",
-                                "sInfoThousands": ",",
-                                "sLoadingRecords": "Cargando...",
-                                "oPaginate": {
-                                    "sFirst": "Primero",
-                                    "sLast": "Último",
-                                    "sNext": "Siguiente",
-                                    "sPrevious": "Anterior"
-                                },
-                                "oAria": {
-                                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                                },
-                                "buttons": {
-                                    "copy": "Copiar",
-                                    "colvis": "Visibilidad"
-                                }
-                            }
-                        });
-                    });
+            $(document).ready(function () {
+                $('#tablaPedido').DataTable({
+                    language: {
+                        "sProcessing": "Procesando...",
+                        "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sZeroRecords": "No se encontraron resultados",
+                        "sEmptyTable": "Ningún dato disponible en esta tabla",
+                        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Buscar:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Cargando...",
+                        "oPaginate": {
+                            "sFirst": "Primero",
+                            "sLast": "Último",
+                            "sNext": "Siguiente",
+                            "sPrevious": "Anterior"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                        },
+                        "buttons": {
+                            "copy": "Copiar",
+                            "colvis": "Visibilidad"
+                        }
+                    }
+                });
+            });
     </script>
     <!-- REQUERIDO PARA EL DATATABLE -->
     <script src="../JAVASCRIPT/Jquery/jquery-3.3.1.min.js"></script>

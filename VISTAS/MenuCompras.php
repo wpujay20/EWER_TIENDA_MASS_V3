@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>Menu Compras</title>
         <!-- Description, Keywords and Author -->
         <meta name="description" content="Your description">
@@ -46,8 +47,8 @@
 //    }
 
     if (!isset($_SESSION["id_usuario"])) {  //SI NO SE HA INICIADO SESION  CON EL ID ENTONCES REDIERECCIONAR AL INDEX
-        echo'<script src="../JAVASCRIPT/RestringirTienda.js"></script>  ';
-        //  echo '<script>  document.location.href="../index.php"; </script>';
+//        echo'<script src="../JAVASCRIPT/RestringirTienda.js"></script>  ';
+         echo '<script>  document.location.href="../index.php"; </script>';
     }
 
 //SI SE HA INICIADO SESION ENTONCES...
@@ -78,6 +79,7 @@
                         <ul class="nav navbar-nav">
 
                             <li><a href=../index.php>Inicio</a></li>
+                              <li><a href=MenuCompras.php>Realizar Compras</a></li>
                             <li class="nav-item">
                                 <input type="hidden"id="valor" value="<?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION["CARRITO"]); ?>">
 
@@ -85,7 +87,7 @@
 
                             </li>
                             <li>
-                                <a class="nav-link" id="carrito"   href="../CONTROLADOR/TiendaControlador.php?op=2">Mis Pedidos</a>
+                                <a class="nav-link" id="carrito"   href="../CONTROLADOR/TiendaControlador.php?op=2">Mis Compras</a>
 
                             </li>
 

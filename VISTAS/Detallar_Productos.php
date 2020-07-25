@@ -22,7 +22,9 @@ $lista = $objPersona->ListarPorProductosPorID($id);
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title></title>
+        
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">		
         <link href="../css/style.css" rel="stylesheet">
@@ -35,6 +37,7 @@ $lista = $objPersona->ListarPorProductosPorID($id);
         <?php
         foreach ($lista as $indice) {
             ?>
+        <div class="container">
             <div class="tablaDetalleProductos"> 
 
                 <form action="../CONTROLADOR/PedioControlador.php" method="post"  >
@@ -45,8 +48,6 @@ $lista = $objPersona->ListarPorProductosPorID($id);
                             <img src="../img/PRODUCTOS/<?php echo $indice["pro_imagen"]; ?>" width="250" height="250">
                         </center> 
                         </td>
-
-
                         <th> Nombre </th>
                         <td> <?php echo $indice["pro_nombre"]; ?> </td>
                         </tr>
@@ -78,7 +79,6 @@ $lista = $objPersona->ListarPorProductosPorID($id);
                             <td>
                                 <input type="number" name="p_cantidad" id="p_cantidad" min="1"max="20" required="" >
                             </td>
-
                         </tr>
                         <tr>                          
                             <td colspan="4"> <center>
@@ -88,14 +88,11 @@ $lista = $objPersona->ListarPorProductosPorID($id);
                             <input type="hidden" name="p_stock" id="p_stock" value="<?php echo $indice["pro_stock"]; ?>">
                             <input type="hidden" name="p_descripcion" id=p_descripcion value="<?php echo $indice["pro_descripcion"]; ?>">
                             <input type="hidden" name="c_nombre" id="c_nombre" value="<?php echo $indice["cat_nombre"]; ?>">
-                            <input type="hidden" name="m_nombre" id="m_nombre" value="<?php echo $indice["marca_nombre"]; ?>">
-                             
+                            <input type="hidden" name="m_nombre" id="m_nombre" value="<?php echo $indice["marca_nombre"]; ?>">                             
                             <input type="hidden"  name="op"  value="1"   >
-
                             <button class=" btn btn-warning"  id ="añadir_carro" 
                                     name="añadir_carro" value="Agregar" 
                                     type="submit" >  Añadir a carrito
-
                             </button> </center></td>
 
                         </tr>
@@ -103,6 +100,7 @@ $lista = $objPersona->ListarPorProductosPorID($id);
 
                 </form> 
             </div>     
+        </div>
         <?php } ?> 
 
     </body>

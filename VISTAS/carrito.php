@@ -1,45 +1,119 @@
 
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<!-- Button trigger modal--><script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<?php 
+session_start();
+?>
+<html>
 <head>
-    
+
     <title>Lista del carrito</title>
 </head>
-<center>
+<link href="../CSS/bootstrap.css" rel="stylesheet" type="text/css"/>
+ <!-- Description, Keywords and Author -->
+        <meta name="description" content="Your description">
+        <meta name="keywords" content="Your,Keywords">
+        <meta name="author" content="ResponsiveWebInc">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Styles -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../JAVASCRIPT/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+        <link href="../CSS/estilo_MenuTienda.css" rel="stylesheet">
+         <!-- Javascript files -->
+        <!-- jQuery -->
+       
+        <!-- Bootstrap JS -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- Respond JS for IE8 -->
+        <script src="../js/respond.min.js"></script>
+        <!-- HTML5 Support for IE -->
+        <script src="../js/html5shiv.js"></script>
+        <!-- Custom JS -->
+        <script src="../js/custom.js"></script>
 
+  <!-- REQUERIDO PARA EL DATATABLE -->
+    <script src="../JAVASCRIPT/Jquery/jquery-3.3.1.min.js"></script>
+    <script src="../JAVASCRIPT/popper/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../datatables/datatables.min.js"></script>
+    <script type="text/javascript" src="../datatables/main.js"></script>
+
+
+
+<body>
+               <header>
+            <!-- navigation -->
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="../index.php"><img class="img-responsive" src="../img/logo.png" alt="Logo" /></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                        <ul class="nav navbar-nav">
+
+                            <li><a href=../index.php>Inicio</a></li>
+                              <li><a href=MenuCompras.php>Realizar Compras</a></li>
+                            <li class="nav-item">
+                                <input type="hidden"id="valor" value="<?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION["CARRITO"]); ?>">
+
+                                <a class="nav-link" id="carrito"   href="carrito.php">Carrito(  <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION["CARRITO"]); ?>)</a>
+
+                            </li>
+                            <li>
+                                <a class="nav-link" id="carrito"   href="../CONTROLADOR/TiendaControlador.php?op=2">Mis Compras</a>
+
+                            </li>
+
+                        </ul>
+
+
+                        <!--Falta avanzar-->
+                        <form   class="navbar-form navbar-right" role="search">
+
+                            <a id="" type="submit" href="../CONTROLADOR/Controlador_Sesiones.php" class="btn btn-warning">
+                                Cerrar Sesion
+                            </a>
+                        </form>
+
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </header>
+<center>
     <h3>Lista del carrito</h3>
 </center>
-
-<!--
-Si la session CARRITO no está vacia, entonces va a imprimir los datos que el cliente a añadido al carrito
-Pero si la session Existe, Nos mostrará que no hay productos añadidos.
--->
-<!--
-El empy() nos permite usar para saber y una variable está vacía o no
-en este caso "if(!empty($_SESSION['CARRITO']))"
-Decimos que si no está vacía. imprimirá los datos que el 
-Cliente a deseado añadir a tu carrito
--->
+ 
 <?php
-session_start();
+ 
 if (!empty($_SESSION['CARRITO'])) {
     //var_dump($_SESSION['CARRITO']);
     // unset($_SESSION['CARRITO']);
     ?>
 
 
+
     <center>
+          <a class="btn btn-success nav-link " href="MenuCompras.php">Regresar a Menu Compras</a>
+            <br><br> <br><br>
         <div class="container"> 
-            <a class="btn btn-success nav-link" href="MenuCompras.php">Regresar a Menu Compras</a>
+          
 
 
 
-            <table class="table table-hover">
-                <thead>
-                    <tr> 
+            <table class="table table-hover  " style="font-size: larger">
+                <thead  >
+                    <tr class="text-center" > 
                         <th>ID</th>
                         <th>Nombre del Producto</th>
                         <th>Precio</th>
@@ -57,26 +131,23 @@ if (!empty($_SESSION['CARRITO'])) {
                     <?php foreach ($_SESSION['CARRITO']as $producto => $indi) {
                         ?>
                         <tr>
+                            <td  class="text-center"><?php echo number_format($indi['ID'], 0) ?></td>
+                            <td  class="text-center"><?php echo $indi['P_NOMBRE'] ?></td>
+                            <td  id="precio"class="text-center">S/  <?php echo number_format($indi['P_PRECIO'], 2) ?></td>
+                            <td  class="text-center"><?php echo $indi['P_STOCK']; ?></td>
+                            <td  class="text-center"><?php echo $indi['C_NOMBRE']; ?></td>
+                            <td  class="text-center"><?php echo $indi['M_NOMBRE']; ?></td>
+                            <td   class="boton"><?php echo $indi['P_CANTIDAD']; ?></td>
+                            <td   id="subtotal" class="text-center">S/ <?php echo number_format($indi['P_PRECIO'] * $indi['P_CANTIDAD'], 2) ?></td>
 
-                            <td width="20%" class="text-center"><?php echo number_format($indi['ID'], 0) ?></td>
-                            <td width="20%" class="text-center"><?php echo $indi['P_NOMBRE'] ?></td>
-                            <td width="20%" id="precio"class="text-center">S/  <?php echo number_format($indi['P_PRECIO'], 2) ?></td>
-                            <td width="20%" class="text-center"><?php echo $indi['P_STOCK']; ?></td>
-                            <td width="20%" class="text-center"><?php echo $indi['C_NOMBRE']; ?></td>
-                            <td width="20%" class="text-center"><?php echo $indi['M_NOMBRE']; ?></td>
-                            <td width="20%"  class="boton"><?php echo $indi['P_CANTIDAD']; ?></td>
-                            <td  width="20%" id="subtotal" class="text-center">S/ <?php echo number_format($indi['P_PRECIO'] * $indi['P_CANTIDAD'], 2) ?></td>
-
-                            <td width="40%" class="text-center"> 
+                            <td   class="text-center"> 
                                 <?php
                                 ?>
                                 <form action="../CONTROLADOR/PedioControlador.php" method="post">
                                     <input type="hidden" name="id" id="id" value="<?php echo number_format($indi['ID'], 0) ?>">
                                     <button class="btn btn-danger" type="submit "name="añadir_carro" value="Eliminar" >Eliminar </button>
                                 </form>
-                            </td>
-
-                            <td><a><i class="fas fa-times"></i></a></td>
+                            </td>                             
                         </tr>
 
                         <?php
@@ -87,11 +158,10 @@ if (!empty($_SESSION['CARRITO'])) {
                     <tr>
                         <td colspan="7" align="right"><h3>Total</h3> </td>
                         <td align="right"><h3>S/.<?php echo number_format($total, 2); ?></h3></td>
- 
+
                     </tr>
                     <tr>
-
-                        <td colspan="7">
+                        <td colspan="7" align="right">
 
                             <form   action="Pagar.php" method="post">
 
@@ -123,3 +193,5 @@ if (!empty($_SESSION['CARRITO'])) {
 
 <?php } ?>
 <!-- Modal: modalCart -->
+    </body>
+    </html>
