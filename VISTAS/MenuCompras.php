@@ -96,8 +96,7 @@
 
                         <!--Falta avanzar-->
                         <form   class="navbar-form navbar-right" role="search">
-
-                            <a id="" type="submit" href="../CONTROLADOR/Controlador_Sesiones.php" class="btn btn-warning">
+                            <a id="cerrar2" type="submit"   class="btn btn-warning">
                                 Cerrar Sesion
                             </a>
                         </form>
@@ -148,7 +147,8 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
         <script src="../JAVASCRIPT/Opcion_Cerrar_Sesion.js"></script>
-       
+        
+        <script src="../JAVASCRIPT/SessionClose.js" type="text/javascript"></script>
     </body>
 
 

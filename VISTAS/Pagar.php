@@ -1,13 +1,13 @@
-<?php 
-session_start(); 
- 
-    if($_POST){
-        $total=0;
-        $SID=session_id();
-        $NumeroProductos = count($_SESSION['CARRITO']);
-        foreach ($_SESSION['CARRITO'] as $producto => $indi) {
-           $total = $total + ($indi['P_PRECIO'] * $indi['P_CANTIDAD']);  
-        } 
+<?php
+session_start();
+
+if ($_POST) {
+    $total = 0;
+    $SID = session_id();
+    $NumeroProductos = count($_SESSION['CARRITO']);
+    foreach ($_SESSION['CARRITO'] as $producto => $indi) {
+        $total = $total + ($indi['P_PRECIO'] * $indi['P_CANTIDAD']);
+    }
 //        
 //        $objPedBean->setId_persona($idperso);
 //        $objPedBean->setPedido_monto($total);         
@@ -17,71 +17,73 @@ session_start();
 //             $ID_PEDIDO=$objPedDAO->ObtenerIDMaxPedido(); 
 //             $objPedDAO->InsertarDetalleDePedido($indi['ID'], $ID_PEDIDO, $indi['P_CANTIDAD']); 
 //         } 
-    }
-    ?>
-    <html lang="es">
-        <head>
-            <meta charset="UTF-8">
-            <title>Pagar</title>
-            <script src="https://js.stripe.com/v3/"></script>
-            <style>
-                .StripeElement {
-                    box-sizing: border-box; 
-                    height: 40px; 
-                    padding: 10px 12px; 
-                    border: 1px solid transparent;
-                    border-radius: 4px;
-                    background-color: white; 
-                    box-shadow: 0 1px 3px 0 #e6ebf1;
-                    -webkit-transition: box-shadow 150ms ease;
-                    transition: box-shadow 150ms ease;
-                } 
-                .StripeElement--focus {
-                    box-shadow: 0 1px 3px 0 #cfd7df;
-                } 
-                .StripeElement--invalid {
-                    border-color: #fa755a;
-                }
+}
+?>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pagar</title>
+        <script src="https://js.stripe.com/v3/"></script>
+        <style>
+            .StripeElement {
+                box-sizing: border-box; 
+                height: 40px; 
+                padding: 10px 12px; 
+                border: 1px solid transparent;
+                border-radius: 4px;
+                background-color: white; 
+                box-shadow: 0 1px 3px 0 #e6ebf1;
+                -webkit-transition: box-shadow 150ms ease;
+                transition: box-shadow 150ms ease;
+            } 
+            .StripeElement--focus {
+                box-shadow: 0 1px 3px 0 #cfd7df;
+            } 
+            .StripeElement--invalid {
+                border-color: #fa755a;
+            }
 
-                .StripeElement--webkit-autofill {
-                    background-color: #fefde5 !important;
-                }
-            </style>
-        </head>
-        <body>
-            <br><br> 
-            
-            <div class="container">
-                <h2>Para Finalizar el Pedido, Por favor ingrese tu Tarjeta de Crédito</h2>
-                <br>
+            .StripeElement--webkit-autofill {
+                background-color: #fefde5 !important;
+            }
+        </style>
+    </head>
+    <body>
+        <br><br> 
 
-                <h3>El Monto Total a Pagar es S/. <?php echo $total; ?>   </h3>
-                <form action="CreateCharge.php" id="payment-form" method="post">
-                     
+        <div class="container">
+            <h2>Para Finalizar el Pedido, Por favor ingrese tu Tarjeta de Crédito</h2>
+            <br>
 
-                    <div class="form-row">
-                        <label for="card-element">
-                            <span> Tarjeta de Credito o Debito</span>
-                        </label>
-                        <div id="card-element"  >
-                            <!-- A Stripe Element will be inserted here. -->
-                        </div> 
-                        <!-- Used to display form errors. -->
-                        <div id="card-errors" role="alert"></div>
+            <h3>El Monto Total a Pagar es S/. <?php echo $total; ?>   </h3>
+            <form action="CreateCharge.php" id="payment-form" method="post">
+
+
+                <div class="form-row">
+                    <label for="card-element">
+                        <span> Tarjeta de Credito o Debito</span>
+                    </label>
+                    <div id="card-element"  >
+                        <!-- A Stripe Element will be inserted here. -->
                     </div> 
-                    <br>
-                    <center>
-                        <button  class="btn btn-success" style="width: 150px;"  type="submit"  >Pagar</button> 
-                    </center>
-                </form> 
-                  <center>
-                  <button class="btn btn-primary" style="width: 150px;"type="submit"  >Cancelar</button>
-                    </center>
-                </form>   
-                
-            </div>
+                    <!-- Used to display form errors. -->
+                    <div id="card-errors" role="alert"></div>
+                </div> 
+                <br>
+                <center>
+                    <button  class="btn btn-success" style="width: 150px;"  type="submit"  >Pagar</button> 
+                </center>
+            </form> 
+            <form >
 
-            <?php ?>
+                <center>
+                    <a class="btn btn-primary" onclick="cancelarPago()" style="width: 150px;"type="button"  >Cancelar</a>
+                </center>
+            </form>   
+
+        </div>
+
+        <?php ?>
         <script>
             // Create a Stripe client.
             var stripe = Stripe('pk_test_51Gv2cDIC1NF0bHGm7XFZvmquWdAkE1bUcVRWtNEtidxCbLMEV6o4WnJNhMoE28ezfKSQoLILfiQtAJlCzcEKPi7c0057bQgZYM');
@@ -155,11 +157,15 @@ session_start();
             }
         </script>
     </body>
+    <script src="../JAVASCRIPT/cancelarPago.js" type="text/javascript"></script>
     <link href="../CSS/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    
-    
-            
-            
-          
-    
+    <script src="../JAVASCRIPT/Jquery/jquery-1.6.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="../JAVASCRIPT/cancelarPago.js"></script>
+
+
+
+
+
+
 </html>
