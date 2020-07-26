@@ -19,8 +19,8 @@
 <script src="js/html5shiv.js"></script>
 <!-- Custom JS -->
 <script src="js/custom.js"></script>
-
+<script src="JAVASCRIPT/CerrarSesion.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<script src="JAVASCRIPT/Opcion_Cerrar_Sesion.js"></script>
+
 </body>	
 </html>

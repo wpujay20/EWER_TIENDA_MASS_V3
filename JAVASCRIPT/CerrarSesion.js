@@ -1,7 +1,8 @@
+function cerrar(){
+    
+     $(document).ready(function () {
 
-$(document).ready(function () {
-$("#cerrar").click(function () {
-            Swal.fire({
+        Swal.fire({
             title: "Cerrar la Sesion",
             html: '<h4><strong> ¿Estas Seguro? </strong></h4>',
             icon: "question",
@@ -14,10 +15,10 @@ $("#cerrar").click(function () {
 
         $("button").click(function () {
             //window.location.href="CONTROLADOR/Controlador_Sesiones.php";
-             document.location.href="../CONTROLADOR/Controlador_Sesiones.php";
-//             require('../CONTROLADOR/Controlador_Sesiones.php');
-            });
+            window.location.href = "CONTROLADOR/Controlador_Sesiones.php";
+
+        });
+
     });
-});
-
-
+    
+}

@@ -6,6 +6,7 @@ $mensaje = "";
 if (isset($_REQUEST['añadir_carro'])) {
     switch ($_REQUEST["añadir_carro"]) {
         case "Agregar":{
+        
                 $ID         = $_REQUEST['p_id'];
                 $P_NOMBRE   = $_REQUEST['p_nombre'];
                 $P_PRECIO   = $_REQUEST['p_precio'];

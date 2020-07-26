@@ -146,7 +146,7 @@
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-        <script src="../JAVASCRIPT/Opcion_Cerrar_Sesion.js"></script>
+      
         
         <script src="../JAVASCRIPT/SessionClose.js" type="text/javascript"></script>
     </body>

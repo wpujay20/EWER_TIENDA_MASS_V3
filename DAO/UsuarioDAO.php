@@ -63,7 +63,7 @@ class UsuarioDAO extends UsuarioBean {
         try {
             $instanciacompartida = ConexionBD::getInstance();
             $sql = "SELECT * FROM usuario WHERE usu_usuario='$objUsuarioBean->usu_usuario'"
-                    . " and usu_password='$objUsuarioBean->usu_password';";
+                    . " and usu_password='$objUsuarioBean->usu_password' and id_tipo_usu=1;";
             $res = $instanciacompartida->ejecutar($sql);
             $lista = $instanciacompartida->obtener_filas($res);
             $verificar = mysqli_affected_rows($instanciacompartida->getLink());

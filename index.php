@@ -13,7 +13,7 @@ include './TEMPLATES/cabeceraCliente.php';
             <p>Adquiere tus productos en nuestro nuevo Sistema de Ventas Web</p>
     </div>
 </div>
-
+ 
 <!-- hero -->
 <div class="hero pad">
     <div class="container">
@@ -27,7 +27,7 @@ include './TEMPLATES/cabeceraCliente.php';
             </div>
     </div>
 </div>
-
+<script src="JAVASCRIPT/Opcion_Cerrar_Sesion.js" type="text/javascript"></script>
 <!-- benefits -->
 <div class="benefits pad">
     <div class="container">
@@ -159,8 +159,9 @@ include './TEMPLATES/cabeceraCliente.php';
     </div>
 </div>
 
-</div>
 
+</div>
+ 
 
 <?php
 

@@ -44,26 +44,7 @@ if (!isset($_SESSION)) {
         <!-----------------------------------------------------------------ZONA SLIDER----------------------------------------------------------------->
 
         <div id="menu">
-            <table border="0">
-                <tr>
-                    <td>  <a href="../../CONTROLADOR/Mantenimiento_controlador.php?op=2"><img src="../../img/MANTENIMIENTOS/persona.png" width="90" height="90"></a>Personas</td>
-                </tr>
-                <tr>
-                    <td>  <a href="../../CONTROLADOR/Mantenimiento_controlador.php?op=3.php"><img src="../../img/MANTENIMIENTOS/producto.PNG" width="90" height="90"></a>Productos</td>
-                </tr>
-                <tr>
-                    <td> <a href="../../CONTROLADOR/Mantenimiento_controlador.php?op=4.php" ><img src="../../img/MANTENIMIENTOS/categria.png" width="90" height="90"></a>Categorias</td>
-                </tr>
-                <tr>
-                    <td>  <a href="../../CONTROLADOR/Mantenimiento_controlador.php?op=5"><img src="../../img/MANTENIMIENTOS/ETIQUETA.jpg" width="90" height="90"></a>Marca</td>
-                </tr>
-                <tr> 
-                    <td>  <a href="../../CONTROLADOR/Mantenimiento_controlador.php?op=6"><img src="../../img/MANTENIMIENTOS/pedidos.PNG" width="90" height="90"></a>Pedidos</td>
-                </tr>
-                <tr> 
-                    <td>  <a id="cerrar" href="#"><img src="../../img/MANTENIMIENTOS/salir.PNG" width="90" height="90"></a>Salir</td>
-                </tr>
-            </table>
+            <?php include './opciones.php';?>
         </div>
 
         

@@ -44,8 +44,8 @@
                                     <a href="CONTROLADOR/TiendaControlador.php?op=1" class="dropdown-toggle" >Realizar Compra</a>
 
                                 </li>
-<!--                                <li><a href="LoginCliente.php">Login</a></li>
-                                <li><a href="RegistraCliente.php">Registrate Aqui</a></li>-->
+                                <!--                                <li><a href="LoginCliente.php">Login</a></li>
+                                                                <li><a href="RegistraCliente.php">Registrate Aqui</a></li>-->
                             </ul> 
 
                             <!--                    <form  name= "form" class="navbar-form navbar-right" role="search">
@@ -58,15 +58,13 @@
                             if (!empty($_SESSION["id_usuario"])) {
 
                                 echo ' <form  name= "form" class="navbar-form navbar-right" role="search">
-                                    <a id="cerrar" class="btn btn-warning">Cerrar Sesion</a>
+                                    <a onclick="cerrar()" class="btn btn-warning">Cerrar Sesion</a>
                                 </form>';
-                                
                             } else {
                                 echo ' <ul class="nav navbar-nav"> 
                                 <li><a href="LoginCliente.php">Login</a></li>
                                 <li><a href="RegistraCliente.php">Registrate Aqui</a></li>
                             </ul>   ';
-                                
                             }
                             ?>
 
@@ -75,4 +73,30 @@
                         </div><!-- /.navbar-collapse -->
                     </div><!-- /.container-fluid -->
                 </nav>
+              
+                <script>
+//                    function cerrar() {
+//                        $(document).ready(function () {
+//
+//                            Swal.fire({
+//                                title: "Cerrar la Sesion",
+//                                html: '<h4><strong> ¿Estas Seguro? </strong></h4>',
+//                                icon: "question",
+//                                padding: '1rem',
+//                                timer: 10000,
+//                                timerProgressBar: true,
+//                                position: 'center'
+//
+//                            });
+//
+//                            $("button").click(function () {
+//                                //window.location.href="CONTROLADOR/Controlador_Sesiones.php";
+//                                window.location.href = "CONTROLADOR/Controlador_Sesiones.php";
+//
+//                            });
+//
+//                        }); 
+//                    }
+ 
+                </script>
             </header>
