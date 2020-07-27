@@ -1,6 +1,7 @@
 <?php
 //activamos almacenamiento en el buffer
 ob_start();
+ 
 session_start();
 
 if (empty($_SESSION['id_usuario'])) {
@@ -9,9 +10,9 @@ if (empty($_SESSION['id_usuario'])) {
     $ListaPorIDdp = $_SESSION['ListaDetalle'];
     if ($ListaPorIDdp != null) {
         unset($_SESSION['ListaDetalle']);
-        session_start();
+       
         $ListaPorIDdp = $_SESSION['ListaDetalle'];
-//        var_dump($ListaPorIDdp);
+      var_dump($ListaPorIDdp);
     }
     ?>
     <html>

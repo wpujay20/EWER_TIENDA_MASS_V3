@@ -10,12 +10,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">	
         <!-- Styles -->
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+<!--        <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">		
-        <link href="css/style.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">-->
         <link rel="shortcut icon" href="#">
-
-
+        
+        <link href="CSS/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/style.css" rel="stylesheet" type="text/css"/>
+        
+        
     </head>
     <body>
         <input type="hidden" name="op">

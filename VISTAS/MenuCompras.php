@@ -26,6 +26,8 @@
         <script src="../js/html5shiv.js"></script>
         <!-- Custom JS -->
         <script src="../js/custom.js"></script>
+        
+      
 
 
         
@@ -39,6 +41,7 @@
     if (!isset($_SESSION["lista"])) {
         session_start();
         $lista = $_SESSION["lista"];
+       
     }
 
 //    if (!empty($_SESSION["ID_CLIENTE"])) {
@@ -47,8 +50,8 @@
 //    }
 
     if (!isset($_SESSION["id_usuario"])) {  //SI NO SE HA INICIADO SESION  CON EL ID ENTONCES REDIERECCIONAR AL INDEX
-//        echo'<script src="../JAVASCRIPT/RestringirTienda.js"></script>  ';
-         echo '<script>  document.location.href="../index.php"; </script>';
+         echo'<script src="../JAVASCRIPT/RestringirTienda.js"></script>  ';
+        //echo '<script>  document.location.href="../index.php"; </script>';
     }
 
 //SI SE HA INICIADO SESION ENTONCES...

@@ -25,9 +25,9 @@ $lista = $objPersona->ListarPorProductosPorID($id);
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title></title>
         
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">		
-        <link href="../css/style.css" rel="stylesheet">
+        <link href="../CSS/bootstrap.min.css" rel="stylesheet">
+        <link href="../CSS/font-awesome.min.css" rel="stylesheet">		
+        <link href="../CSS/style.css" rel="stylesheet">
         <link href="../CSS/estilo_MenuTienda.css" rel="stylesheet">
       
     </head>

@@ -135,6 +135,7 @@ $ListaPedidos = $_SESSION['ListaPedidos'];
         <script language=javascript>
             function mostrar() {
                 window.open('../REPORTES/boleta.php', '_blank');
+                
             }
 
         </script>

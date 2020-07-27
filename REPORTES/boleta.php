@@ -1,18 +1,22 @@
 <?php
 
 ob_start();
-unset($_SESSION['ListaDetalle']);
+//unset($_SESSION['ListaDetalle']);
 session_start();
 
 
 require_once '../vendor/autoload.php';
 require_once './example1/index.php';
 require_once '../DAO/PedidoDAO.php';
+require_once '../vendor/mpdf/mpdf/src/Mpdf.php';
+require_once '../vendor/mpdf/mpdf/src/Mpdf.php';
 
 
 $mpdf = new \Mpdf\Mpdf([
     "format" => "A4"
         ]);
+ 
+
 //plantilla
 //$mpdf->SetFooter('{PAGENO}');
 

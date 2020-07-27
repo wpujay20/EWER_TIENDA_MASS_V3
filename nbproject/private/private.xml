@@ -3,7 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/EWER_TIENDA_MASS_V3/VISTAS/MenuCompras.php</file>
+            <file>file:/C:/xampp/htdocs/EWER_TIENDA_MASS_V3/VISTAS/PedidosRealizados.php</file>
+            <file>file:/C:/xampp/htdocs/EWER_TIENDA_MASS_V3/vendor/autoload.php</file>
+            <file>file:/C:/xampp/htdocs/EWER_TIENDA_MASS_V3/REPORTES/boleta.php</file>
+            <file>file:/C:/xampp/htdocs/EWER_TIENDA_MASS_V3/vendor/composer/autoload_real.php</file>
+            <file>file:/C:/xampp/htdocs/EWER_TIENDA_MASS_V3/REPORTES/exTicket.php</file>
         </group>
     </open-files>
 </project-private>

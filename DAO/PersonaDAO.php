@@ -12,10 +12,11 @@ class PersonaDAO extends PersonaBean {
             $sql = "SELECT * FROM PRODUCTO";
             $res = $instanciacompartida->ejecutar($sql);
             $lista = $instanciacompartida->obtener_filas($res);
+            
 
             return $lista;
         } catch (Exception $ex) {
-            echo $ex->getTraceAsString() . "ERROR EN LA LINEA : " . $ex->getLine() . " " . $ex->getMessage();
+            
         }
     }
 
