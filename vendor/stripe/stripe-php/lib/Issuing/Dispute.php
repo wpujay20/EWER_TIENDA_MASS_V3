@@ -1,5 +1,7 @@
 <?php
 
+// File generated from our OpenAPI spec
+
 namespace Stripe\Issuing;
 
 /**
@@ -14,7 +16,7 @@ namespace Stripe\Issuing;
  *
  * @property string $id Unique identifier for the object.
  * @property string $object String representing the object's type. Objects of the same type share the same value.
- * @property \Stripe\BalanceTransaction[] $balance_transactions List of balance transactions associated with this dispute.
+ * @property null|\Stripe\BalanceTransaction[] $balance_transactions List of balance transactions associated with this dispute.
  * @property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.
  * @property string|\Stripe\Issuing\Transaction $transaction The transaction being disputed.
  */

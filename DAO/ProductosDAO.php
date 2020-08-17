@@ -5,44 +5,39 @@ require_once '../UTILS/ConexionBD.php';
 
 class ProductosDAO {
 
-    public function ListarCategorias() {
+       public function ListarCategorias() {
         try {
 
-            $cn = mysqli_connect("localhost", "root", "", "bdmass");
-            mysqli_set_charset($cn, "utf8");
+            $instanciacompartida = ConexionBD::getInstance();
+
             $sql2 = "SELECT * FROM categoria order by cat_nombre";
 
-            $res = mysqli_query($cn, $sql2);
-            while ($row = mysqli_fetch_assoc($res)) {
-                $lista[] = $row;
-            }
+            $res = $instanciacompartida->ejecutar($sql2);
+            $lista = $instanciacompartida->obtener_filas($res);
+            
+             $instanciacompartida->setArray(null);
+            
             return $lista;
         } catch (Exception $ex) {
-
-            echo $ex->getTraceAsString() . "ERROR EN LA LINEA : " . $ex->getLine() . " " . $ex->getMessage();
-        } finally {
-            mysqli_close($cn);
+            
         }
     }
 
     public function ListarMarcas() {
         try {
 
-            $cn = mysqli_connect("localhost", "root", "", "bdmass");
-            mysqli_set_charset($cn, "utf8");
-            $sql2 = "SELECT * FROM marca";
+            $instanciacompartida = ConexionBD::getInstance();
 
-            $res = mysqli_query($cn, $sql2);
-            while ($row = mysqli_fetch_assoc($res)) {
-                $lista[] = $row;
-            }
-            return $lista;
+            $sql2 = "SELECT * FROM marca"; 
+            $res = $instanciacompartida->ejecutar($sql2);
+            $lista = $instanciacompartida->obtener_filas($res);
+            
+             $instanciacompartida->setArray(null);
+             
         } catch (Exception $ex) {
-
-            echo $ex->getTraceAsString() . "ERROR EN LA LINEA : " . $ex->getLine() . " " . $ex->getMessage();
-        } finally {
-            mysqli_close($cn);
+            
         }
+        return $lista;
     }
 
     public function ActualizarImagenDeProducto($id_producto, $nombre_img) {

@@ -1,6 +1,6 @@
 
 <?php
-
+ 
 require_once '../BEAN/UsuarioBean.php';
 require_once '../UTILS/ConexionBD.php';
 require_once '../DAO/PersonaDAO.php';
@@ -74,6 +74,8 @@ class UsuarioDAO extends UsuarioBean {
 
                 $_SESSION['id_usuario'] = $lista[0]['id_usuario'];
                 $_SESSION['id_persona'] = $lista[0]['id_persona'];
+                    $_SESSION['datos']= PersonaDAO::DatosPersonaID($_SESSION['id_persona']);
+                
 
                 //CREACION DE LOS DATOS VARIABLES  PARA LA SESION
                 //NO GUARDAMOS EL SALDO EN UNA SESION PORQUE NECESTAREMOS TRABAJAR CON ESAS CIFRAS EN TODO MOMENTO
@@ -123,42 +125,30 @@ class UsuarioDAO extends UsuarioBean {
             $sql = "SELECT * FROM tipousuario as tip INNER JOIN usuario as usu on tip.id_tipo_usu=usu.id_tipo_usu INNER JOIN persona as per on per.id_persona=usu.id_persona";
             $res = $instanciacompartida->ejecutar($sql);
             $lista = $instanciacompartida->obtener_filas($res);
+             $instanciacompartida->setArray(null);
         } catch (Exception $ex) {
             echo $ex->getTraceAsString() . "ERROR EN LA LINEA : " . $ex->getLine() . " " . $ex->getMessage();
         }
-
-
-
+ 
         return $lista;
     }
     
-        public function ListarTiposUsuario() {
-        
+     public function ListarTiposUsuario() {
+
         try {
 
-           $cn = mysqli_connect("localhost", "root", "", "bdmass");
-           mysqli_set_charset($cn, "utf8");
-           $sql2 = "SELECT * FROM tipousuario";
+            $instanciacompartida = ConexionBD::getInstance();
+            $sql2 = "SELECT * FROM tipousuario";
 
-          $res = mysqli_query($cn, $sql2);
-          while ($row = mysqli_fetch_assoc($res)) {
-              $lista[] = $row ; 
-          }
-            return $lista;
+            $res = $instanciacompartida->ejecutar($sql2);
+            $lista = $instanciacompartida->obtener_filas($res);
+             $instanciacompartida->setArray(null);
             
         } catch (Exception $ex) {
             
-            echo $ex->getTraceAsString() . "ERROR EN LA LINEA : " . $ex->getLine() . " " . $ex->getMessage();
-            
-        } finally {
-            mysqli_close($cn);
-       }
-
-
-
+        }
         return $lista;
     }
-    
     
     
          public function InsertarPersona(PersonaBean $objPersonaBean){

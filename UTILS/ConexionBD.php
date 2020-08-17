@@ -67,6 +67,15 @@ class ConexionBD {
     function setLink($link) {
         $this->link = $link;
     }
+    
+          public function getArray() {
+        return $this->array;
+    }
+
+    public function setArray($array) {
+        $this->array = $array;
+    }
+
 
 
 

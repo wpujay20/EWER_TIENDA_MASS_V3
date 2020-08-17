@@ -10,10 +10,10 @@
         <meta name="author" content="ResponsiveWebInc">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Styles -->
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        
         <link href="../JAVASCRIPT/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../css/style.css" rel="stylesheet">
+      
+        
         <link href="../CSS/estilo_MenuTienda.css" rel="stylesheet">
          <!-- Javascript files -->
         <!-- jQuery -->
@@ -26,8 +26,10 @@
         <script src="../js/html5shiv.js"></script>
         <!-- Custom JS -->
         <script src="../js/custom.js"></script>
+         <link href="../CSS/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../CSS/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../CSS/style.css" rel="stylesheet" type="text/css"/>
         
-      
 
 
         
@@ -41,8 +43,9 @@
     if (!isset($_SESSION["lista"])) {
         session_start();
         $lista = $_SESSION["lista"];
-       
+        
     }
+     //var_dump($lista);
 
 //    if (!empty($_SESSION["ID_CLIENTE"])) {
 //        session_start();
@@ -50,8 +53,8 @@
 //    }
 
     if (!isset($_SESSION["id_usuario"])) {  //SI NO SE HA INICIADO SESION  CON EL ID ENTONCES REDIERECCIONAR AL INDEX
-         echo'<script src="../JAVASCRIPT/RestringirTienda.js"></script>  ';
-        //echo '<script>  document.location.href="../index.php"; </script>';
+      echo'<script src="../JAVASCRIPT/RestringirTienda.js"></script>  ';
+    //     echo '<script>  document.location.href="../index.php"; </script>';
     }
 
 //SI SE HA INICIADO SESION ENTONCES...
@@ -97,12 +100,22 @@
                         </ul>
 
 
-                        <!--Falta avanzar-->
-                        <form   class="navbar-form navbar-right" role="search">
-                            <a id="cerrar2" type="submit"   class="btn btn-warning">
-                                Cerrar Sesion
-                            </a>
-                        </form>
+                         <!--Falta avanzar-->
+                    <form class="navbar-form navbar-right" role="search">
+                        <?php
+                        if (!empty($_SESSION["id_usuario"])) {
+
+
+                                echo '<form  name= "form" class="navbar-form navbar-right" role="search">'
+                                . '<a class="btn dropdown-toggle "><p class="fa fa-user" ></p>'.$_SESSION["datos"][1]["per_nombre"] . " " . $_SESSION["datos"][1]["per_apellido"].'</a> 
+                                    
+                                     <a id="cerrar2" type="submit" class="btn btn-warning">Cerrar Sesion</a>
+                                    
+                                </form>';
+                            }
+                        ?>
+                         
+                    </form>
 
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->

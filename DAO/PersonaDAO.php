@@ -9,10 +9,9 @@ class PersonaDAO extends PersonaBean {
     public function ListarProductos() {
         try {
             $instanciacompartida = ConexionBD::getInstance();
-            $sql = "SELECT * FROM PRODUCTO";
+            $sql = "SELECT * FROM `producto`";
             $res = $instanciacompartida->ejecutar($sql);
             $lista = $instanciacompartida->obtener_filas($res);
-            
 
             return $lista;
         } catch (Exception $ex) {
@@ -51,6 +50,24 @@ marca as m ON p.ID_marca=m.ID_marca WHERE ID_producto='$id';";
             return $estado;
         } catch (Exception $ex) {
             echo $ex->getTraceAsString() . "ERROR EN LA LINEA : " . $ex->getLine() . " " . $ex->getMessage();
+        }
+    }
+    
+     public function DatosPersonaID($id) {
+        try {
+            
+             $instanciaCompartida = ConexionBD::getInstance();
+            $sql = "SELECT * FROM persona as pe INNER JOIN usuario as usu 
+                    on pe.id_persona= usu.id_persona
+                    where pe.id_persona=$id";
+             $res = $instanciaCompartida->ejecutar($sql);
+            $lista = $instanciaCompartida->obtener_filas($res);
+
+            return $lista;
+            
+            
+        } catch (Exception $ex) {
+            
         }
     }
 

@@ -1,5 +1,45 @@
 # Changelog
 
+## 7.47.0 - 2020-08-13
+* [#994](https://github.com/stripe/stripe-php/pull/994) Nullable balance_transactions on issuing disputes
+* [#991](https://github.com/stripe/stripe-php/pull/991) Fix invalid return types in OAuthService
+
+## 7.46.1 - 2020-08-07
+* [#990](https://github.com/stripe/stripe-php/pull/990) PHPdoc changes
+
+## 7.46.0 - 2020-08-05
+* [#989](https://github.com/stripe/stripe-php/pull/989) Add support for the `PromotionCode` resource and APIs
+
+## 7.45.0 - 2020-07-28
+* [#981](https://github.com/stripe/stripe-php/pull/981) PHPdoc updates
+
+## 7.44.0 - 2020-07-20
+* [#948](https://github.com/stripe/stripe-php/pull/948) Add `first()` and `last()` functions to `Collection`
+
+## 7.43.0 - 2020-07-17
+* [#975](https://github.com/stripe/stripe-php/pull/975) Add support for `political_exposure` on `Person`
+
+## 7.42.0 - 2020-07-15
+* [#974](https://github.com/stripe/stripe-php/pull/974) Add new constants for `purpose` on `File`
+
+## 7.41.1 - 2020-07-15
+* [#973](https://github.com/stripe/stripe-php/pull/973) Multiple PHPDoc fixes
+
+## 7.41.0 - 2020-07-14
+* [#971](https://github.com/stripe/stripe-php/pull/971) Adds enum values for `billing_address_collection` on Checkout `Session`
+
+## 7.40.0 - 2020-07-06
+* [#964](https://github.com/stripe/stripe-php/pull/964) Add OAuthService
+
+## 7.39.0 - 2020-06-25
+* [#960](https://github.com/stripe/stripe-php/pull/960) Add constants for `payment_behavior` on `Subscription`
+
+## 7.38.0 - 2020-06-24
+* [#959](https://github.com/stripe/stripe-php/pull/959) Add multiple constants missing for `Event`
+
+## 7.37.2 - 2020-06-23
+* [#957](https://github.com/stripe/stripe-php/pull/957) Updated PHPDocs
+
 ## 7.37.1 - 2020-06-11
 * [#952](https://github.com/stripe/stripe-php/pull/952) Improve PHPDoc
 
@@ -26,7 +66,7 @@
 * [#933](https://github.com/stripe/stripe-php/pull/933) Services bugfix: convert nested null params to empty strings
 
 ## 7.33.0 - 2020-05-14
-* [#771](https://github.com/stripe/stripe-php/pull/771) Introduce client/services API
+* [#771](https://github.com/stripe/stripe-php/pull/771) Introduce client/services API. The [migration guide](https://github.com/stripe/stripe-php/wiki/Migration-to-StripeClient-and-services-in-7.33.0) contains before & after examples of the backwards-compatible changes.
 
 ## 7.32.1 - 2020-05-13
 * [#932](https://github.com/stripe/stripe-php/pull/932) Fix multiple PHPDoc

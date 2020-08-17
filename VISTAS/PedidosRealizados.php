@@ -23,9 +23,9 @@ $ListaPedidos = $_SESSION['ListaPedidos'];
         <meta name="author" content="ResponsiveWebInc">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Styles -->
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../css/style.css" rel="stylesheet">
+        <link href="../CSS/bootstrap.min.css" rel="stylesheet">
+        <link href="../CSS/font-awesome.min.css" rel="stylesheet">
+        <link href="../CSS/style.css" rel="stylesheet">
         <link href="../CSS/estilo_MenuTienda.css" rel="stylesheet">
 
 
@@ -80,12 +80,22 @@ $ListaPedidos = $_SESSION['ListaPedidos'];
                         </ul>
 
 
-                        <!--Falta avanzar-->
-                        <form   class="navbar-form navbar-right" role="search">
-                            <a id="cerrar2" type="submit"   class="btn btn-warning">
-                                Cerrar Sesion
-                            </a>
-                        </form>
+                         <!--Falta avanzar-->
+                    <form class="navbar-form navbar-right" role="search">
+                        <?php
+                        if (!empty($_SESSION["id_usuario"])) {
+
+
+                                echo '<form  name= "form" class="navbar-form navbar-right" role="search">'
+                                . '<a class="btn dropdown-toggle "><p class="fa fa-user" ></p>'.$_SESSION["datos"][1]["per_nombre"] . " " . $_SESSION["datos"][1]["per_apellido"].'</a> 
+                                    
+                                     <a id="cerrar2" type="submit" class="btn btn-warning">Cerrar Sesion</a>
+                                    
+                                </form>';
+                            }
+                        ?>
+                         
+                    </form>
 
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
@@ -135,7 +145,6 @@ $ListaPedidos = $_SESSION['ListaPedidos'];
         <script language=javascript>
             function mostrar() {
                 window.open('../REPORTES/boleta.php', '_blank');
-                
             }
 
         </script>

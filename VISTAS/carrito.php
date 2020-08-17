@@ -30,6 +30,10 @@ session_start();
         <script src="../js/html5shiv.js"></script>
         <!-- Custom JS -->
         <script src="../js/custom.js"></script>
+        
+          <link href="../CSS/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../CSS/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../CSS/style.css" rel="stylesheet" type="text/css"/>
 
   <!-- REQUERIDO PARA EL DATATABLE -->
     <script src="../JAVASCRIPT/Jquery/jquery-3.3.1.min.js"></script>
@@ -79,12 +83,21 @@ session_start();
 
 
                         <!--Falta avanzar-->
-                        <form   class="navbar-form navbar-right" role="search">
+                    <form class="navbar-form navbar-right" role="search">
+                        <?php
+                        if (!empty($_SESSION["id_usuario"])) {
 
-                            <a id="" type="submit" href="../CONTROLADOR/Controlador_Sesiones.php" class="btn btn-warning">
-                                Cerrar Sesion
-                            </a>
-                        </form>
+
+                                echo '<form  name= "form" class="navbar-form navbar-right" role="search">'
+                                . '<a class="btn dropdown-toggle "><p class="fa fa-user" ></p>'.$_SESSION["datos"][1]["per_nombre"] . " " . $_SESSION["datos"][1]["per_apellido"].'</a> 
+                                    
+                                     <a id="cerrar2" type="submit" class="btn btn-warning">Cerrar Sesion</a>
+                                    
+                                </form>';
+                            }
+                        ?>
+                         
+                    </form>
 
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->

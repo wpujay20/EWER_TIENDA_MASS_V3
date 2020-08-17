@@ -17,6 +17,7 @@ class MantenimientosDAO {
 
             $res = $instanciacompartida->ejecutar($sql);
             $lista = $instanciacompartida->obtener_filas($res);
+            $instanciacompartida->setArray(null);
 
             return $lista;
         } catch (Exception $ex) {
@@ -84,15 +85,15 @@ class MantenimientosDAO {
     public function InsertarProductos(ProductosBean $objProductosBean) {
         try {
 
+            
             $instanciacompartida = ConexionBD::getInstance();
-            $sql = "INSERT INTO producto(pro_nombre,pro_precio, pro_stock, pro_descripcion, ID_marca, ID_categoria) "
-                    . "VALUES ('$objProductosBean->pro_nombre',$objProductosBean->pro_precio,$objProductosBean->pro_stock,'$objProductosBean->pro_descripcion',$objProductosBean->ID_marca,$objProductosBean->ID_categoria);";
-
+                 $sql="INSERT INTO producto (pro_nombre, pro_precio, pro_stock, pro_descripcion, pro_imagen, ID_marca, ID_categoria) VALUES "
+                     . "('$objProductosBean->pro_nombre',$objProductosBean->pro_precio,$objProductosBean->pro_stock,'$objProductosBean->pro_descripcion', $objProductosBean->ID_marca,$objProductosBean->ID_categoria);";
+ 
             $estado = $instanciacompartida->EjecutarConEstado($sql);
-
+          
             return $estado;
         } catch (Exception $ex) {
-            echo $ex->getTraceAsString() . "ERROR EN LA LINEA : " . $ex->getLine() . " " . $ex->getMessage();
         }
     }
 
@@ -102,12 +103,16 @@ class MantenimientosDAO {
             $sql = "SELECT * FROM categoria";
 
             $res = $instanciacompartida->ejecutar($sql);
+           
             $lista = $instanciacompartida->obtener_filas($res);
+             $instanciacompartida->setArray(null);
+           
 
-            return $lista;
+           
         } catch (Exception $ex) {
-            echo $ex->getTraceAsString() . "ERROR EN LA LINEA : " . $ex->getLine() . " " . $ex->getMessage();
+            
         }
+        return $lista; 
     }
 
     public function InsertarCategoria(CategoriaBean $objCategoriaBean) {
@@ -118,6 +123,7 @@ class MantenimientosDAO {
                     . "VALUES ('$objCategoriaBean->cat_nombre','$objCategoriaBean->cat_descripcion');";
 
             $estado = $instanciacompartida->EjecutarConEstado($sql);
+           $instanciacompartida->setArray(null);
 
             return $estado;
         } catch (Exception $ex) {
@@ -132,6 +138,7 @@ class MantenimientosDAO {
 
             $res = $instanciacompartida->ejecutar($sql);
             $lista = $instanciacompartida->obtener_filas($res);
+            // $instanciaCompartida->setArray(null);
 
             return $lista;
         } catch (Exception $ex) {

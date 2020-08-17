@@ -17,7 +17,7 @@ class PedidoDAO
 
             return $estado;
         } catch (Exception $ex) {
-            echo $ex->getTraceAsString() . "ERROR EN LA LINEA : " . $ex->getLine() . " " . $ex->getMessage();
+            
         }
     }
 
@@ -33,7 +33,7 @@ class PedidoDAO
             $id          = $id_obtenido['ID'];
             return $id;
         } catch (Exception $ex) {
-            echo $ex->getTraceAsString() . "ERROR EN LA LINEA : " . $ex->getLine() . " " . $ex->getMessage();
+            
         }
     }
 
@@ -120,8 +120,7 @@ class PedidoDAO
 
         try {
             $instanciaComp = ConexionBD::getInstance();
-            $sql           = "SELECT PED.id_pedido,PER.per_nombre,PER.per_email,PED.id_persona,PED.pedido_estado,PED.pedido_fecha "
-                . "FROM PEDIDO AS PED INNER JOIN PERSONA AS PER ON PED.id_persona=PER.id_persona;";
+            $sql           = "SELECT PED.id_pedido,PER.per_nombre,PER.per_email,PED.id_persona,PED.pedido_estado,PED.pedido_fecha FROM pedido AS PED INNER JOIN persona AS PER ON PED.id_persona=PER.id_persona";
             $res   = $instanciaComp->EjecutarConEstado($sql);
             $lista = $instanciaComp->obtener_filas($res);
 

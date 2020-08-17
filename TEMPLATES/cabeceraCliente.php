@@ -10,9 +10,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">	
         <!-- Styles -->
 
-<!--        <link href="css/bootstrap.min.css" rel="stylesheet">
+         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">		
-        <link href="css/style.css" rel="stylesheet">-->
+        <link href="css/style.css" rel="stylesheet"> 
         <link rel="shortcut icon" href="#">
         
         <link href="CSS/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -61,8 +61,11 @@
                             session_start();
                             if (!empty($_SESSION["id_usuario"])) {
 
-                                echo ' <form  name= "form" class="navbar-form navbar-right" role="search">
-                                    <a onclick="cerrar()" class="btn btn-warning">Cerrar Sesion</a>
+                                echo '<form  name= "form" class="navbar-form navbar-right" role="search">'
+                                . '<a class="btn dropdown-toggle "><p class="fa fa-user" ></p>'.$_SESSION["datos"][1]["per_nombre"] . " " . $_SESSION["datos"][1]["per_apellido"].'</a> 
+                                    
+                                     <a id="cerrar2" type="submit" class="btn btn-warning">Cerrar Sesion</a>
+                                    
                                 </form>';
                             } else {
                                 echo ' <ul class="nav navbar-nav"> 
