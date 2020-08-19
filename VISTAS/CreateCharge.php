@@ -11,10 +11,10 @@ require_once '../DAO/PedidoDAO.php';
 
 \Stripe\Stripe::setApiKey("sk_test_51Gv2cDIC1NF0bHGmSdJkmz1UA6fTotRLYT9Tr2eRjRJMA7uxJvZ9C5xWPhsgqcLI342UAoEi3csbZKDOqY1neE1Q002w5YDd0W");
 
-//// set up your tweaked Curl client
-//$curl = new \Stripe\HttpClient\CurlClient([CURLOPT_PROXY => '000webhost.com']);
-//// tell Stripe to use the tweaked client
-//\Stripe\ApiRequestor::setHttpClient($curl);
+// set up your tweaked Curl client
+$curl = new \Stripe\HttpClient\CurlClient([CURLOPT_PROXY => '000webhost.com']);
+// tell Stripe to use the tweaked client
+\Stripe\ApiRequestor::setHttpClient($curl);
 
 
 $idperso = $_SESSION['id_persona'];
@@ -30,6 +30,7 @@ if (!empty($_SESSION['CARRITO'])) {
                 "source" => $token
     ]);
 //Guarda el cargo creado en una variable sesion
+    
 
     $_SESSION['pago'] = $charge;
 

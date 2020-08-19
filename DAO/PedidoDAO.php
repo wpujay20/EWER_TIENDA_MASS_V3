@@ -12,7 +12,7 @@ class PedidoDAO
         try {
             $instanciaComp = ConexionBD::getInstance();
             $sql           = "INSERT INTO pedido (id_pedido, id_persona, pedido_monto, pedido_fecha, pedido_estado)"
-                . " VALUES (NULL, '$objPedido->id_persona', '$objPedido->pedido_monto', current_timestamp(), 'Pendiente');";
+                . " VALUES (NULL, '$objPedido->id_persona', '$objPedido->pedido_monto', Now(), 'Pendiente');";
             $estado = $instanciaComp->EjecutarConEstado($sql);
 
             return $estado;
