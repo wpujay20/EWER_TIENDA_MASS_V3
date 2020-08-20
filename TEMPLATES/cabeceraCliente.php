@@ -64,7 +64,7 @@
                                 echo '<form  name= "form" class="navbar-form navbar-right" role="search">'
                                 . '<a class="btn dropdown-toggle "><p class="fa fa-user" ></p>'.$_SESSION["datos"][1]["per_nombre"] . " " . $_SESSION["datos"][1]["per_apellido"].'</a> 
                                     
-                                     <a id="cerrar2" type="submit" class="btn btn-warning">Cerrar Sesion</a>
+                                     <a id="cerrar" type="submit" onclick="cerrar()" class="btn btn-warning">Cerrar Sesion</a>
                                     
                                 </form>';
                             } else {
@@ -80,7 +80,7 @@
                         </div><!-- /.navbar-collapse -->
                     </div><!-- /.container-fluid -->
                 </nav>
-              
+
                 <script>
 //                    function cerrar() {
 //                        $(document).ready(function () {

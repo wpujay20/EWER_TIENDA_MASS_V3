@@ -105,6 +105,7 @@ class UsuarioDAO extends UsuarioBean {
 
                 $_SESSION['id_usuario'] = $lista[0]['id_usuario'];
                 $_SESSION['id_persona'] = $lista[0]['id_persona'];
+                $_SESSION['datosAdmin']= PersonaDAO::DatosPersonaID($_SESSION['id_persona']);
 
                 //CREACION DE LOS DATOS VARIABLES  PARA LA SESION
                 //NO GUARDAMOS EL SALDO EN UNA SESION PORQUE NECESTAREMOS TRABAJAR CON ESAS CIFRAS EN TODO MOMENTO

@@ -27,6 +27,7 @@ if (!isset($_SESSION['id_persona'])) {  //SI NO SE HA INICIADO SESION  CON EL ID
         <!-- REQUERIDO PARA EL EL SLIDER -->
         <link rel="stylesheet"  type="text/css" href="../../CSS/ADMIN_CSS/menu_mantenimientos.css">
 
+  <link href="../../CSS/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
 
     </head>
@@ -43,7 +44,8 @@ if (!isset($_SESSION['id_persona'])) {  //SI NO SE HA INICIADO SESION  CON EL ID
                 <a class="navbar-brand" href="#"><img class="img-responsive" src="../../img/logo.png" alt="Logo" /></a>
             </div>
             <br>
-            <br>
+            <a class="h4 btn"  ><p class="fa fa-user"> Usuario: </p><?php echo $_SESSION["datosAdmin"][1]["per_nombre"] . " " . $_SESSION["datosAdmin"][1]["per_apellido"] ?></a>
+
         </header>
 
          <div id="menu">

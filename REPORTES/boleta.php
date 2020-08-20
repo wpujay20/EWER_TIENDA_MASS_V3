@@ -1,7 +1,7 @@
 <?php
-
-ob_start();
  unset($_SESSION['ListaDetalle']);
+ob_start();
+
 session_start();
 
 

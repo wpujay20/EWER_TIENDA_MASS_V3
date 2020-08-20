@@ -5,6 +5,8 @@ if (!isset($_SESSION['id_persona'])) {  //SI NO SE HA INICIADO SESION  CON EL ID
         echo '<script> document.location.href="../../index.php"';       
 }
 
+ 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +19,7 @@ if (!isset($_SESSION['id_persona'])) {  //SI NO SE HA INICIADO SESION  CON EL ID
         <!-- REQUERIDO PARA EL DATA TABLE -->
 
         <link rel="stylesheet" href="../../CSS/bootstrap.min.css">
-     
+        <link href="../../CSS/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
         <!-- REQUERIDO PARA EL EL SLIDER -->
         <link rel="stylesheet"  type="text/css" href="../../CSS/ADMIN_CSS/menu_mantenimientos.css">
@@ -36,9 +38,13 @@ if (!isset($_SESSION['id_persona'])) {  //SI NO SE HA INICIADO SESION  CON EL ID
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="MENU_PRINICIPAL_ADMIN.php"><img class="img-responsive" src="../../img/logo.png" alt="Logo" /></a>
+             
+            
             </div>
-            <br>
-            <br>
+          
+            <br>            
+            <a class="h4 btn"  ><p class="fa fa-user"> Usuario: </p><?php echo $_SESSION["datosAdmin"][1]["per_nombre"] . " " . $_SESSION["datosAdmin"][1]["per_apellido"] ?></a>
+
         </header>   
 
         <div id="menu">

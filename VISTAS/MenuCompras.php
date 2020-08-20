@@ -19,7 +19,6 @@
         <!-- jQuery -->
        
         <!-- Bootstrap JS -->
-        <script src="../js/bootstrap.min.js"></script>
         <!-- Respond JS for IE8 -->
         <script src="../js/respond.min.js"></script>
         <!-- HTML5 Support for IE -->
