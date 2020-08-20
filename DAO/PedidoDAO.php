@@ -158,7 +158,7 @@ class PedidoDAO
     {
         try {
             $instanciaComp = ConexionBD::getInstance();
-            $sql           = "UPDATE PEDIDO SET pedido_estado='Empacando' WHERE id_pedido=$IDPEDIDO;";
+                $sql           = "UPDATE PEDIDO SET pedido_estado='Empacando' WHERE id_pedido=$IDPEDIDO;";
             $estado        = $instanciaComp->EjecutarConEstado($sql);
             return $estado;
         } catch (Exception $e) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-07-2020 a las 23:24:30
+-- Tiempo de generación: 20-08-2020 a las 19:04:27
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.3
 
@@ -57,7 +57,8 @@ INSERT INTO `categoria` (`ID_categoria`, `cat_nombre`, `cat_descripcion`) VALUES
 (1, 'Limpieza', 'La limpieza es un factor muy importante en todas partes para evitar enfermedades'),
 (2, 'dulces', 'A veces un dulce puede alegrarte el dia'),
 (3, 'alimentos enlatados', 'Muy saludables y nutritivos'),
-(4, 'la categoria                  ', 'aeaaaa');
+(4, 'la categoria                  ', 'aeaaaa'),
+(5, 'Abarrotes', 'Abarrotes');
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,25 @@ INSERT INTO `detalle_pedido` (`id_det_pedido`, `id_producto`, `id_pedido`, `det_
 (41, 4, 33, 1),
 (42, 5, 33, 1),
 (43, 3, 33, 1),
-(44, 5, 34, 1);
+(44, 5, 34, 1),
+(49, 2, 37, 2),
+(50, 2, 38, 3),
+(51, 4, 38, 1),
+(52, 2, 39, 2),
+(53, 9, 39, 2),
+(54, 2, 40, 5),
+(55, 24, 41, 2),
+(56, 19, 41, 2),
+(57, 5, 42, 2),
+(58, 6, 42, 2),
+(59, 19, 43, 2),
+(60, 2, 44, 2),
+(61, 6, 44, 1),
+(62, 5, 45, 1),
+(63, 6, 45, 1),
+(64, 2, 46, 2),
+(65, 8, 47, 2),
+(66, 10, 47, 2);
 
 -- --------------------------------------------------------
 
@@ -131,7 +150,7 @@ CREATE TABLE `pedido` (
   `id_pedido` int(11) NOT NULL,
   `id_persona` int(11) NOT NULL,
   `pedido_monto` decimal(6,2) DEFAULT NULL,
-  `pedido_fecha` timestamp NOT NULL DEFAULT current_timestamp(),
+  `pedido_fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `pedido_estado` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -141,14 +160,25 @@ CREATE TABLE `pedido` (
 
 INSERT INTO `pedido` (`id_pedido`, `id_persona`, `pedido_monto`, `pedido_fecha`, `pedido_estado`) VALUES
 (23, 32, '50.00', '2020-06-26 00:51:03', 'Aceptado'),
-(27, 25, '145.00', '2020-06-26 02:42:32', 'Pendiente'),
-(28, 25, '45.00', '2020-06-26 02:47:32', 'Pendiente'),
+(27, 25, '145.00', '2020-06-26 02:42:32', 'Entregado'),
+(28, 25, '45.00', '2020-06-26 02:47:32', 'Empacando'),
 (29, 25, '30.00', '2020-06-26 02:48:27', 'Pendiente'),
 (30, 25, '60.00', '2020-06-26 02:58:53', 'Pendiente'),
 (32, 34, '100.00', '2020-06-30 23:00:21', 'Pendiente'),
 (33, 34, '19.50', '2020-06-30 23:03:39', 'Pendiente'),
 (34, 37, '10.00', '2020-07-02 03:56:49', 'Pendiente'),
-(36, 37, '14.50', '2020-07-02 04:14:06', 'Pendiente');
+(36, 37, '14.50', '2020-07-02 04:14:06', 'Pendiente'),
+(37, 37, '10.00', '2020-08-20 16:24:14', 'Entregado'),
+(38, 37, '19.50', '2020-07-23 16:20:29', 'Pendiente'),
+(39, 34, '11.00', '2020-08-16 18:10:41', 'Pendiente'),
+(40, 34, '25.00', '2020-08-16 23:51:49', 'Pendiente'),
+(41, 34, '12.60', '2020-08-17 18:56:15', 'Pendiente'),
+(42, 34, '23.00', '2020-08-17 19:43:34', 'Pendiente'),
+(43, 34, '5.60', '2020-08-18 22:25:15', 'Pendiente'),
+(44, 34, '11.50', '2020-08-19 00:47:07', 'Pendiente'),
+(45, 34, '11.50', '2020-08-19 17:39:15', 'Pendiente'),
+(46, 34, '10.00', '2020-08-19 17:40:32', 'Pendiente'),
+(47, 34, '7.00', '2020-08-19 18:53:26', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -175,7 +205,9 @@ INSERT INTO `persona` (`id_persona`, `per_nombre`, `per_apellido`, `per_dni`, `p
 (32, 'Emma                ', 'Garayar             ', '74741985', 'emma@gmail.com                                                ', '987372725', 'aea                                               '),
 (34, 'Maria', 'Gonzales', '74125896', 'maria@gmail.com', '987458745', 'lurin'),
 (36, 'ana', 'Garcia', '74125896', 'as@gmail.com', '987456321', 'ass'),
-(37, 'Wilson', 'Pujay Iglesias', '75158799', 'wpujay@gmail.com', '996966589', 'av. algarrobos');
+(37, 'Wilson              ', 'Pujay Iglesias      ', '75158799', 'wpujay@gmail.com                                                ', '996966589', 'av. algarrobos                                    '),
+(38, 'MARY MAURA', 'HILARIO PADILLA', '45789696', 'MaryMaura@gmail.com', '969366985', 'av. el paraiso'),
+(39, 'ADMINISTRADOR       ', 'ADMINISTRADOR       ', '99999999', 'admin@gmail.com                       ', '9999999', 'Administrador                                    ');
 
 -- --------------------------------------------------------
 
@@ -199,18 +231,20 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`ID_producto`, `pro_nombre`, `pro_precio`, `pro_stock`, `pro_descripcion`, `pro_imagen`, `ID_marca`, `ID_categoria`) VALUES
-(2, 'desinfectante de superficies  ', '5.00', 994, 'Usalo para desinfectar, limpiar, evitar la presencia de bacterias, virus y otro tipo de microorganismos peligrosos para la salud.                                                                       ', 'desinfectante de piso_ala.jpg', 1, 3),
-(3, 'Detergente Ace                ', '5.00', 14288, 'Detergente muy economico, limpia la ropa sin desgastar los colores                                                                                                                                      ', 'ace_detergente.jpg', 1, 3),
-(4, 'lavavajillas en pasta         ', '4.50', 5193, 'Destruye grasa e ilumina tus trastes Consistencia dura que garantiza rendimiento Aroma agradable a limón Para una limpieza superior                                         ', 'lavavajillas_ayudin.jpg', 1, 3),
-(5, 'lavavajilla liquida', '10.00', 88, 'Lavavajilla líquida Sapolio Concentrada Botella 1L', 'lavavajilla_liquida_sapolio.png', 8, 1),
-(6, 'Frac', '1.50', 100, 'Galletas Frac (chocolate) Paquete 4 unidades', 'frac_costa.jpeg', 7, 2),
+(2, 'desinfectante de superficies  ', '5.00', 978, 'Usalo para desinfectar, limpiar, evitar la presencia de bacterias, virus y otro tipo de microorganismos peligrosos para la salud.                                                                       ', 'desinfectante de piso_ala.jpg', 1, 1),
+(3, 'Detergente Ace                ', '5.00', 14288, 'Detergente muy economico, limpia la ropa sin desgastar los colores                                                                                                                                      ', 'ace_detergente.jpg', 1, 1),
+(4, 'lavavajillas en pasta         ', '4.50', 5192, 'Destruye grasa e ilumina tus trastes Consistencia dura que garantiza rendimiento Aroma agradable a limón Para una limpieza superior                                                                     ', 'lavavajillas_ayudin.jpg', 1, 1),
+(5, 'lavavajilla liquida', '10.00', 85, 'Lavavajilla líquida Sapolio Concentrada Botella 1L', 'lavavajilla_liquida_sapolio.png', 8, 1),
+(6, 'Frac', '1.50', 96, 'Galletas Frac (chocolate) Paquete 4 unidades', 'frac_costa.jpeg', 7, 2),
 (7, 'Chocolate sublime', '1.00', 100, 'Chocolate blanco sublime 100p x 1 unidad', 'sublime_blanco.jpg', 6, 2),
-(8, 'Galletas Casino', '0.50', 100, 'galletas-casino-chocolate-1-unidad-35g', 'galletas-casino-chocolate-1-unidad-35g.jpg', 5, 2),
-(9, 'Galletas Rellenitas', '0.50', 100, 'rellenita-coco-x40gr', 'rellenita-coco-x40-paq-gn.jpg', 4, 2),
-(10, 'conservas de atun             ', '3.00', 65, 'atun enlatado - lomo de atun - 170gr                                                     ', 'atun_en_lata.jpeg', 3, 3),
+(8, 'Galletas Casino', '0.50', 98, 'galletas-casino-chocolate-1-unidad-35g', 'galletas-casino-chocolate-1-unidad-35g.jpg', 5, 2),
+(9, 'Galletas Rellenitas', '0.50', 98, 'rellenita-coco-x40gr', 'rellenita-coco-x40-paq-gn.jpg', 4, 2),
+(10, 'conservas de atun             ', '3.00', 63, 'atun enlatado - lomo de atun - 170gr                                                     ', 'atun_en_lata.jpeg', 3, 3),
 (11, 'conservas de piña', '5.00', 90, 'piña en rodajas- Rebanadas en almibar - 400gr', 'herdez_lata01.jpeg', 3, 3),
 (12, 'sweet corn', '5.00', 100, 'maiz tierno el fortin - lata de 262gr', 'Maiz-Tierno-El-Fortín-Lata-262-grs.jpg', 2, 3),
-(13, 'carne enlatada                ', '6.00', 90, 'zenu_chile_de_carne_res - 450gr                                         ', 'zenu_chile_de_carne_res.jpg', 1, 3);
+(13, 'carne enlatada                ', '6.00', 90, 'zenu_chile_de_carne_res - 450gr                                         ', 'zenu_chile_de_carne_res.jpg', 1, 3),
+(19, 'Tallarin', '2.80', 496, 'Tallarin Lavaggi', 'tallarin.jpg', 4, 1),
+(24, 'Leche', '3.50', 498, 'Leche Gloria', 'lecheGloria.jpg', 12, 5);
 
 -- --------------------------------------------------------
 
@@ -254,7 +288,9 @@ INSERT INTO `usuario` (`id_usuario`, `id_persona`, `usu_usuario`, `usu_password`
 (3, 25, 'jose@gmail.com', 'josejosejose', 2),
 (12, 34, 'maria@gmail.com', 'MariaMariaMaria', 1),
 (14, 36, 'as@gmail.com', 'anaanaana', 2),
-(15, 37, 'wpujay@gmail.com', 'wpujaywpujay', 2);
+(15, 37, 'wpujay@gmail.com', 'wpujaywpujay', 1),
+(16, 38, 'MaryMaura@gmail.com', 'MaryMaura123', 1),
+(17, 39, 'admin@gmail.com', 'admin123', 2);
 
 --
 -- Índices para tablas volcadas
@@ -331,13 +367,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `ID_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_pedido`
 --
 ALTER TABLE `detalle_pedido`
-  MODIFY `id_det_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_det_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de la tabla `marca`
@@ -349,19 +385,19 @@ ALTER TABLE `marca`
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `id_persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `ID_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `tipousuario`
@@ -373,7 +409,7 @@ ALTER TABLE `tipousuario`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Restricciones para tablas volcadas

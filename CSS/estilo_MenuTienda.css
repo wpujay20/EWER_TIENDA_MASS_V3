@@ -26,9 +26,9 @@
 
 .div_imagen{
     box-shadow: 3px 3px 10px gray;
-    position: absolute;
+    /*position: absolute;*/
     text-align: center;
-    //padding: 20px;
+    padding: 20px;
   
 }
 

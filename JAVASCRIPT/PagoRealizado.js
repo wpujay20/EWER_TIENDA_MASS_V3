@@ -2,7 +2,7 @@
 $(document).ready(function () { 
     Swal.fire({
         title: "Perfecto",
-        html: '<h4><strong> Su Pedido se ha Registrado Correctamente</strong></h4>',
+        html: '<h4><strong> Su compra se ha procesado correctamente</strong></h4>',
         icon: "success",
         padding: '1rem',
         //timer: 5000,

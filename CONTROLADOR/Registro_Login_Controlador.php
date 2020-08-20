@@ -82,9 +82,10 @@ switch ($opciones) {
 
             $objUsuarioBean->setUsu_usuario($email);
             $objUsuarioBean->setUsu_password($password);
+            UsuarioDAO::ValidarUsuario($objUsuarioBean);
 
 
-            $objUsuarioDAO->ValidarUsuario($objUsuarioBean);
+//            $objUsuarioDAO->ValidarUsuario($objUsuarioBean);
         }
 }
 ?>
